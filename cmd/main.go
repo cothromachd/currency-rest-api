@@ -61,7 +61,7 @@ func main() {
 			if err != nil {
 				log.Panic(err)
 			}
-
+			// binch
 			for rows.Next() {
 
 				sp := &pairsForUpdater1{}
