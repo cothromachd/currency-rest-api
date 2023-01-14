@@ -8,10 +8,7 @@ import (
 	"net/http"
 	"strconv"
 	"time"
-
 	"github.com/gofiber/fiber/v2"
-
-	//"github.com/jackc/pgx/v5"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
@@ -35,10 +32,6 @@ type pairsForUpdater2 struct {
 
 func main() {
 	app := fiber.New()
-	//ежечасный обновлятор для наших курсов валют из базы данных
-	//начинается
-
-	//заканчивается
 	dbPool, err := pgxpool.New(context.Background(), "postgres://khalidmagnificent:190204@localhost:5432/currency")
 	if err != nil {
 
@@ -73,7 +66,6 @@ func main() {
 				if err = rows.Err(); err != nil {
 					log.Panic(err)
 				}
-
 			}
 
 			for _, elem := range currenciesNames {
@@ -204,7 +196,6 @@ func main() {
 
 		//проверяем на успешность, если да, отправляем 200 (успешно)
 		if result.Insert() {
-			log.Printf("%+v", err)
 			c.Send([]byte(`{"status": "success"}`))
 		}
 
