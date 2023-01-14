@@ -191,7 +191,7 @@ func main() {
 		if err != nil {
 
 			log.Printf("%+v", err)
-			c.Send([]byte(`{"status": "fail"`))
+			c.Send([]byte(`{"status": "fail"}`))
 			return fiber.NewError(fiber.StatusServiceUnavailable, err.Error())
 
 		}
@@ -252,7 +252,10 @@ func main() {
 		if err != nil {
 			log.Printf("%+v", err)
 		}
-		c.Send(s_arr_json)
+		err = c.Send(s_arr_json)
+		if err != nil {
+			log.Printf("%+v", err)
+		}
 		return nil
 	})
 	log.Fatal(app.Listen(":4000"))
