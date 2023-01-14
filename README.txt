@@ -1,5 +1,5 @@
 # currency-rest-api
-This api will allow you to interact with current exchange rates.
+This API will allow you to interact with current exchange rates.
 
 The user has the ability to create a pair of currencies.
 The user has the ability to transfer currency from one pair to another.
